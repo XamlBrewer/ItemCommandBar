@@ -1,0 +1,29 @@
+﻿<Application x:Class="XamlBrewer.MouseCommandBar.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:XamlBrewer.MouseCommandBar">
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <!-- Resource Dictionaries -->
+            <ResourceDictionary.MergedDictionaries>
+                <!-- CollapsedAppBar style -->
+                <ResourceDictionary Source="Controls/CollapsedAppBar.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <SolidColorBrush x:Key="MightyRed"
+                             Color="#FFEE5A5A" />
+            <SolidColorBrush x:Key="MightyYellow"
+                             Color="#FFEBE93C" />
+            <SolidColorBrush x:Key="MightyPink"
+                             Color="#FFE1BF92" />
+
+            <!-- Override the listview selected item colors -->
+            <SolidColorBrush x:Key="ListViewItemSelectedPointerOverBorderThemeBrush"
+                             Color="#FFEE5A5A" />
+            <SolidColorBrush x:Key="ListViewItemSelectedBackgroundThemeBrush"
+                             Color="#FFEE5A5A" />
+        </ResourceDictionary>
+    </Application.Resources>
+
+</Application>

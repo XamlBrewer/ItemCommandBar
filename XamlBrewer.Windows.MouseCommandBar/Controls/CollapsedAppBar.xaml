@@ -1,0 +1,65 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="using:XamlBrewer.MouseCommandBar">
+
+    <Style TargetType="local:CollapsedAppBar">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:CollapsedAppBar">
+                    <Grid Height="15"
+                          Background="{TemplateBinding Background}"
+                          HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                          VerticalAlignment="{TemplateBinding VerticalAlignment}">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="Pointer">
+                                <VisualState x:Name="Normal" />
+                                <VisualState x:Name="PointerOver">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)"
+                                                                       Storyboard.TargetName="border">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <StackPanel Orientation="Horizontal"
+                                    Margin="0  0 20 0"
+                                    HorizontalAlignment="Right">
+                            <Ellipse Fill="{StaticResource ApplicationForegroundThemeBrush}"
+                                     Stroke="{StaticResource ApplicationForegroundThemeBrush}"
+                                     Width="5"
+                                     Height="5"
+                                     HorizontalAlignment="Left"
+                                     VerticalAlignment="Center"
+                                     Margin="0 0 5 0" />
+                            <Ellipse Fill="{StaticResource ApplicationForegroundThemeBrush}"
+                                     Stroke="{StaticResource ApplicationForegroundThemeBrush}"
+                                     Width="5"
+                                     Height="5"
+                                     HorizontalAlignment="Left"
+                                     VerticalAlignment="Center"
+                                     Margin="0 0 5 0" />
+                            <Ellipse Fill="{StaticResource ApplicationForegroundThemeBrush}"
+                                     Stroke="{StaticResource ApplicationForegroundThemeBrush}"
+                                     Width="5"
+                                     Height="5"
+                                     HorizontalAlignment="Left"
+                                     VerticalAlignment="Center"
+                                     Margin="0 0 5 0" />
+                        </StackPanel>
+
+                        <Border x:Name="border"
+                                Background="#77FFFFFF"
+                                Visibility="Collapsed" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>
