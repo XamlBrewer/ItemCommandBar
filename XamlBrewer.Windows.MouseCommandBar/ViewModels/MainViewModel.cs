@@ -26,16 +26,17 @@
             get { return this.selectedCheese; }
             set
             {
-                this.SetProperty(ref this.selectedCheese, value);
-                this.OnPropertyChanged("HasSelection");
-            }
-        }
+                if (this.selectedCheese != null)
+                {
+                    this.selectedCheese.IsSelected = false;
+                }
 
-        public bool HasSelection
-        {
-            get
-            {
-                return this.selectedCheese != null;
+                this.SetProperty(ref this.selectedCheese, value);
+
+                if (this.selectedCheese != null)
+                {
+                    this.selectedCheese.IsSelected = true;
+                }
             }
         }
     }

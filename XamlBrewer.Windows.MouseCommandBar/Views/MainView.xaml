@@ -43,7 +43,6 @@
         <ListView x:Name="CheesePlate"
                   ItemsSource="{Binding CheesePlate}"
                   SelectedItem="{Binding SelectedCheese, Mode=TwoWay}"
-                  SelectionChanged="CheesePlate_SelectionChanged"
                   Margin="20"
                   HorizontalAlignment="Left"
                   Grid.Row="1">
@@ -169,7 +168,7 @@
     <Page.BottomAppBar>
         <CommandBar x:Name="CommandBar"
                     Background="{StaticResource MightyPink}"
-                    IsOpen="{Binding HasSelection}">
+                    >
             <AppBarButton Label="Smell"
                           DataContext="{Binding SelectedCheese}"
                           Command="{Binding SmellCommand}">
