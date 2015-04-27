@@ -116,6 +116,8 @@
     <Compile Include="MVVM\BindableBase.cs" />
     <Compile Include="MVVM\BooleanToVisibilityConverter.cs" />
     <Compile Include="MVVM\RelayCommand.cs" />
+    <Compile Include="Services\Device.cs" />
+    <Compile Include="Services\InputMode.cs" />
     <Compile Include="ViewModels\CheeseViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="Views\MainView.xaml.cs">

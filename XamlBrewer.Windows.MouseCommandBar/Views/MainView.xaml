@@ -160,6 +160,14 @@
             </Canvas>
         </Viewbox>
 
+        <!-- Mode Indicator -->
+        <TextBlock x:Name="ModeTextBlock" 
+                   FontSize="24"
+                   Margin="0 0 20 100"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Bottom"
+                   Grid.Row="2" />
+
         <!-- AppBar Hint -->
         <local:CollapsedAppBar VerticalAlignment="Bottom"
                                Grid.RowSpan="10"
