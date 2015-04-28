@@ -12,12 +12,12 @@
         private string description;
         private bool hasPointer = false;
         private bool isSelected;
-        private DispatcherTimer timer = new DispatcherTimer();
+        // private DispatcherTimer timer = new DispatcherTimer();
 
         public CheeseViewModel()
         {
-            timer.Interval = TimeSpan.FromSeconds(3);
-            timer.Tick += this.LoosePointer;
+            //timer.Interval = TimeSpan.FromSeconds(3);
+            //timer.Tick += this.LoosePointer;
         }
 
         public string Name
@@ -38,10 +38,10 @@
             set
             {
                 this.SetProperty(ref this.isSelected, value);
-                if (!this.isSelected)
-                {
-                    timer.Start();
-                }
+                //if (!this.isSelected)
+                //{
+                //    timer.Start();
+                //}
             }
         }
 
@@ -51,17 +51,17 @@
             set
             {
                 this.SetProperty(ref this.hasPointer, value);
-                if (this.hasPointer && !this.isSelected)
-                {
-                    timer.Start();
-                }
+                //if (this.hasPointer && !this.isSelected)
+                //{
+                //    timer.Start();
+                //}
             }
         }
 
         private void LoosePointer(object sender, object e)
         {
             this.HasPointer = false;
-            timer.Stop();
+            //timer.Stop();
         }
 
         public ICommand SmellCommand

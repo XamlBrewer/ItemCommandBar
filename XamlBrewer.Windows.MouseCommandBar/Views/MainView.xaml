@@ -161,15 +161,17 @@
         </Viewbox>
 
         <!-- Mode Indicator -->
-        <TextBlock x:Name="ModeTextBlock" 
-                   FontSize="24"
-                   Margin="0 0 20 100"
-                   HorizontalAlignment="Right"
-                   VerticalAlignment="Bottom"
-                   Grid.Row="2" />
+        <ComboBox x:Name="ModeComboBox" 
+                  SelectionChanged="ModeComboBox_SelectionChanged"
+                  FontSize="24"
+                  Margin="0 0 20 100"
+                  HorizontalAlignment="Right"
+                  VerticalAlignment="Bottom"
+                  Grid.Row="2" />
 
         <!-- AppBar Hint -->
-        <local:CollapsedAppBar VerticalAlignment="Bottom"
+        <local:CollapsedAppBar x:Name="AppBarHint" 
+                               VerticalAlignment="Bottom"
                                Grid.RowSpan="10"
                                Grid.ColumnSpan="10" />
     </Grid>
