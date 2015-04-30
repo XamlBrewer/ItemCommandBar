@@ -3,7 +3,7 @@
     using Mvvm;
     using System.Collections.Generic;
 
-    class MainViewModel : BindableBase
+    class MainViewModel : ViewModelBase
     {
         private CheeseViewModel selectedCheese;
 

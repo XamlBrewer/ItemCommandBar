@@ -23,6 +23,7 @@
 
         private void ApplyInputMode(InputMode inputMode)
         {
+            // TODO: move to binding.
             switch (inputMode)
             {
                 case InputMode.Desktop:
@@ -39,6 +40,7 @@
                     // No mouse: no inline appbar, bottom appbar opens and closes automatically.
                     this.AppBarHint.Visibility = Visibility.Visible;
                     this.CommandBar.Visibility = Visibility.Visible;
+                    
                     break;
                 default:
                     break;
@@ -48,6 +50,7 @@
         private void ModeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var inputMode = (InputMode)this.ModeComboBox.SelectedItem;
+            Device.InputMode = inputMode;
             this.ApplyInputMode(inputMode);
         }
     }
