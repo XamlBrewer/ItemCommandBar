@@ -1,31 +1,39 @@
-﻿namespace XamlBrewer.MouseCommandBar.Services
+﻿using Mvvm;
+
+namespace XamlBrewer.MouseCommandBar.Services
 {
-    public class Device
+    class Device: BindableBase
     {
-        private static InputMode _inputMode;
+        private readonly static Device _instance;
+        private InputMode _inputMode;
 
         static Device()
         {
+            _instance = new Device();
+
             // No touch -> Desktop
             if (new Windows.Devices.Input.TouchCapabilities().TouchPresent == 0)
             {
-                _inputMode = InputMode.Desktop;
+                _instance._inputMode = InputMode.Desktop;
             }
 
             // No mouse -> Touch Optimized
             if (new Windows.Devices.Input.MouseCapabilities().MousePresent == 0)
             {
-                _inputMode = InputMode.TouchOptimized;
+                _instance._inputMode = InputMode.TouchOptimized;
             }
 
             // Otherwise -> Touch Enabled
-            _inputMode = InputMode.TouchEnabled;
+            _instance._inputMode = InputMode.TouchEnabled;
         }
 
-        public static InputMode InputMode
+        public static Device Instance
+        { get { return _instance; } }
+
+        public InputMode InputMode
         {
-            get { return _inputMode; }
-            set { _inputMode = value; }
+            get { return this._inputMode; }
+            set { this.SetProperty(ref this._inputMode, value); }
         }
     }
 }

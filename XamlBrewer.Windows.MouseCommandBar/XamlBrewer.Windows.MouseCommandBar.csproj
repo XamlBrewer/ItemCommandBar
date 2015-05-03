@@ -115,6 +115,7 @@
     <Compile Include="Controls\VisualTreeHelperExtensions.cs" />
     <Compile Include="MVVM\BindableBase.cs" />
     <Compile Include="MVVM\BooleanToVisibilityConverter.cs" />
+    <Compile Include="MVVM\EnumtoVisibilityConverter.cs" />
     <Compile Include="MVVM\RelayCommand.cs" />
     <Compile Include="Services\Device.cs" />
     <Compile Include="Services\InputMode.cs" />

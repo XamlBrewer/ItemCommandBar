@@ -1,6 +1,5 @@
 ﻿namespace XamlBrewer.MouseCommandBar.ViewModels
 {
-    using Mvvm;
     using System.Collections.Generic;
 
     class MainViewModel : ViewModelBase

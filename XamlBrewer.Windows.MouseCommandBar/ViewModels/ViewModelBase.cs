@@ -7,7 +7,12 @@ namespace XamlBrewer.MouseCommandBar.ViewModels
     {
         public InputMode InputMode
         {
-            get { return Device.InputMode; }
+            get { return Device.Instance.InputMode; }
+            set
+            {
+                Device.Instance.InputMode = value;
+                this.OnPropertyChanged("InputMode");
+            }
         }
     }
 }
