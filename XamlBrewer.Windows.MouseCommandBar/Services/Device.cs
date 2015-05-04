@@ -15,12 +15,14 @@ namespace XamlBrewer.MouseCommandBar.Services
             if (new Windows.Devices.Input.TouchCapabilities().TouchPresent == 0)
             {
                 _instance._inputMode = InputMode.Desktop;
+                return;
             }
 
             // No mouse -> Touch Optimized
             if (new Windows.Devices.Input.MouseCapabilities().MousePresent == 0)
             {
                 _instance._inputMode = InputMode.TouchOptimized;
+                return;
             }
 
             // Otherwise -> Touch Enabled
