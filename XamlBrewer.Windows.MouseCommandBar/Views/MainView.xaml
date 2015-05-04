@@ -8,7 +8,8 @@
       xmlns:core="using:Microsoft.Xaml.Interactions.Core"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      mc:Ignorable="d">
+      mc:Ignorable="d"
+      FontFamily="Andy">
 
     <Page.DataContext>
         <vm:MainViewModel />
@@ -26,37 +27,38 @@
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
 
-        <!-- Title-->
-        <TextBlock Text="Mouse Command Bar Sample"
-                   Style="{StaticResource HeaderTextBlockStyle}"
-                   Margin="20"
-                   Foreground="Black" />
-
         <!-- BackGround -->
-        <Image Stretch="Uniform"
-               Grid.Row="1"
+        <Image Stretch="UniformToFill"
+               Grid.RowSpan="3"
                HorizontalAlignment="Right"
                VerticalAlignment="Center"
-               Source="../Assets/MightyMouse.jpg"
-               Margin="20" />
+               Source="../Assets/Geronimo.jpg"
+               Margin="0" />
+
+        <!-- Title-->
+        <TextBlock Text="Mouse Command Bar Sample"
+                   FontSize="60"
+                   Margin="20"
+                   Foreground="Black" />
 
         <!-- Main -->
         <ListView ItemsSource="{Binding CheesePlate}"
                   SelectedItem="{Binding SelectedCheese, Mode=TwoWay}"
                   Margin="20"
                   HorizontalAlignment="Left"
-                  Grid.Row="1">
+                  Grid.Row="1"
+                  >
             <ListView.Header>
-                <TextBlock Text="Cheese Plate"
-                           FontSize="32"
-                           Foreground="{StaticResource MightyRed}"
+                <TextBlock Text="Cheese Pun"
+                           FontSize="48"
+                           Foreground="{StaticResource GeronimoTie}"
                            Margin="4" />
             </ListView.Header>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid Height="120"
-                          Width="600"
-                          Background="{StaticResource MightyYellow}">
+                          Width="720"
+                          Background="{StaticResource GeronimoPants}">
                         <Grid.RowDefinitions>
                             <RowDefinition />
                             <RowDefinition />
@@ -66,9 +68,10 @@
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
                         <TextBlock Text="{Binding Name}"
-                                   Foreground="Black"
-                                   FontSize="24"
-                                   Margin="10" />
+                                   Foreground="{StaticResource GeronimoFeet}"
+                                   FontSize="40"
+                                   Margin="10"
+                                   FontFamily="Andy" />
                         <StackPanel Visibility="{Binding HasPointer, Converter={StaticResource BooleanToVisibilityConverter}}"
                                     Grid.Column="1"
                                     Grid.RowSpan="2"
@@ -96,9 +99,10 @@
                         <TextBlock Text="{Binding Description}"
                                    Grid.Row="1"
                                    Grid.ColumnSpan="2"
-                                   Foreground="Black"
-                                   FontSize="18"
+                                   Foreground="White"
+                                   FontSize="32"
                                    Margin="10"
+                                   FontFamily="Andy"
                                    TextWrapping="WrapWholeWords" />
                         <i:Interaction.Behaviors>
                             <core:EventTriggerBehavior EventName="PointerEntered">
@@ -137,14 +141,14 @@
                                   Height="236"
                                   Margin="4 0 4 4"
                                   Stretch="Fill"
-                                  Fill="{StaticResource MightyYellow}"
+                                  Fill="{StaticResource GeronimoFur}"
                                   Data="F1 M 4869.77,-3633.83C 4870.14,-3633.18 4866.87,-3606.81 4867.34,-3603.82C 4867.81,-3600.82 4871.83,-3590.35 4871.83,-3584.36C 4871.83,-3574.77 4868.13,-3569.7 4865.19,-3561.36C 4863.32,-3556.07 4863.13,-3540.54 4862.94,-3538.77C 4862.76,-3536.99 4853.72,-3414.8 4852.97,-3411.99C 4852.22,-3409.19 4849.1,-3401.58 4843.86,-3401.33C 4838.63,-3401.08 4802.53,-3401.33 4809.36,-3401.33C 4816.18,-3401.33 4779.21,-3401.08 4773.98,-3401.33C 4768.74,-3401.58 4766.14,-3408.25 4765.74,-3411.99C 4765.44,-3414.88 4755.96,-3536.99 4755.77,-3538.77C 4755.58,-3540.54 4755.39,-3556.07 4753.52,-3561.36C 4750.58,-3569.7 4746.89,-3574.77 4746.89,-3584.36C 4746.89,-3590.35 4750.91,-3600.82 4751.37,-3603.82C 4751.84,-3606.81 4748.57,-3633.18 4748.94,-3633.83C 4749.32,-3634.49 4750.81,-3634.49 4750.81,-3634.49" />
                         </Canvas>
                     </Viewbox>
                 </Canvas>
                 <Grid Width="200"
                       Height="80">
-                    <TextBlock Foreground="{StaticResource MightyRed}"
+                    <TextBlock Foreground="{StaticResource GeronimoTie}"
                                FontSize="24"
                                FontWeight="SemiBold"
                                HorizontalAlignment="Right"
@@ -161,44 +165,63 @@
         </Viewbox>
 
         <!-- Mode Indicator -->
-        <ComboBox x:Name="ModeComboBox" 
+        <ComboBox x:Name="ModeComboBox"
+                  Header="Mode"
                   SelectedItem="{Binding InputMode, Mode=TwoWay}"
-                  FontSize="24"
-                  Margin="0 0 20 100"
+                  FontSize="48"
+                  FontFamily="Andy"
+                  Margin="20"
                   HorizontalAlignment="Right"
-                  VerticalAlignment="Bottom"
-                  Grid.Row="2" />
+                  VerticalAlignment="Top"
+                  Grid.Row="1" />
 
         <!-- AppBar Hint -->
-        <local:CollapsedAppBar Visibility="{Binding InputMode, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter='TouchOptimized'}"
-                               VerticalAlignment="Bottom"
+        <local:CollapsedAppBar VerticalAlignment="Bottom"
                                Grid.RowSpan="10"
                                Grid.ColumnSpan="10" />
     </Grid>
     <Page.BottomAppBar>
-        <CommandBar Visibility="{Binding InputMode, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter='TouchOptimized'}"
-                    Background="{StaticResource MightyPink}"
-                    >
-            <AppBarButton Label="Smell"
-                          DataContext="{Binding SelectedCheese}"
-                          Command="{Binding SmellCommand}">
-                <AppBarButton.Icon>
-                    <PathIcon Height="32"
-                              Width="32"
-                              Margin="10 10 0 0"
-                              Data="M8.5726423,10.953999L21.333,10.953999 21.333,11.909865 8.5726423,11.928067C7.1117692,11.928067 5.9254951,13.114249 5.9254951,14.577949 5.9254951,16.041651 7.1117692,17.227833 8.5726423,17.227833 10.036155,17.227833 11.221049,16.041651 11.221049,14.577949 11.221049,14.231626 11.150849,13.903403 11.02975,13.600082L12.046645,13.600082C12.135145,13.913804 12.197644,14.236726 12.197644,14.577949 12.197644,16.575388 10.572653,18.202 8.5726423,18.202 6.575212,18.202 4.9489999,16.575388 4.9489999,14.577949 4.9489999,12.580312 6.575212,10.953999 8.5726423,10.953999z M14.270998,0.61500002C15.851686,0.61499996 17.137896,1.9000077 17.137896,3.4791894 17.137896,3.7512648 17.088499,4.006443 17.018204,4.2537126L16.213661,4.2537126C16.309855,4.0155715 16.36455,3.7551741 16.36455,3.4791894 16.36455,2.3231284 15.427217,1.3858718 14.270998,1.3858718 13.114779,1.3858718 12.177445,2.3231284 12.177445,3.4791894 12.177445,4.6378397 13.114779,5.5764961 14.270998,5.5764961L21.333,5.5856847 21.333,6.3460001 14.270998,6.3460001C12.69041,6.3460001 11.404,5.0609602 11.404,3.4791894 11.404,1.9000077 12.69041,0.61499996 14.270998,0.61500002z M4.4699073,0C6.9348421,-4.4630667E-08 8.9399939,2.0052394 8.9399939,4.4689202 8.9399939,4.8907504 8.8631554,5.2891907 8.753727,5.6758303L7.4998946,5.6758303C7.648272,5.3022804 7.734271,4.8973407 7.734271,4.4689202 7.734271,2.6640358 6.2733517,1.2005296 4.4699073,1.2005298 2.6665926,1.2005296 1.2056731,2.6640358 1.2056731,4.4689202 1.2056731,6.2735948 2.6665926,7.7370705 4.4699073,7.7370705L21.333,7.7592215 21.333,8.9390001 4.4699073,8.9390001C2.0051618,8.9390001 0,6.9337611 0,4.4689202 0,2.0052394 2.0051618,-4.4630667E-08 4.4699073,0z" />
-                </AppBarButton.Icon>
-            </AppBarButton>
-            <AppBarButton Label="Eat"
-                          DataContext="{Binding SelectedCheese}"
-                          Command="{Binding EatComand}">
-                <AppBarButton.Icon>
-                    <PathIcon Height="32"
-                              Width="32"
-                              Margin="10 10 0 0"
-                              Data="M17.275801,0C18.945648,0,20.305008,1.2630363,20.491901,2.8827558L20.528999,21.333 16.575321,21.333 16.575321,13.425548 14.022,13.425548 14.022,3.2538488C14.022,1.4570026,15.478955,0,17.275801,0z M0,0L1.002043,0 1.002043,5.175878 2.7044303,5.175878 2.7044303,0 3.7063433,0 3.7063433,5.175878 5.4634189,5.175878 5.4634189,0 6.465342,0 6.465342,5.175878 8.2230863,5.175878 8.2230863,0 9.2250003,0 9.2250003,5.175878 7.9066886,8.9103289 6.6984233,8.9103289 6.6984233,21.102001 2.525417,21.102001 2.525417,8.9103289 1.3177615,8.9103289 0,5.175878z" />
-                </AppBarButton.Icon>
-            </AppBarButton>
-        </CommandBar>
+        <AppBar Background="{StaticResource GeronimoFur}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <!-- Secondary Commands -->
+                <StackPanel Orientation="Horizontal"
+                            Visibility="{Binding InputMode, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter='TouchOptimized'}">
+                    <StackPanel Orientation="Horizontal"
+                                Visibility="{Binding HasSelection, Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <AppBarButton Label="Smell"
+                                      DataContext="{Binding SelectedCheese}"
+                                      Command="{Binding SmellCommand}">
+                            <AppBarButton.Icon>
+                                <PathIcon Height="32"
+                                          Width="32"
+                                          Margin="10 10 0 0"
+                                          Data="M8.5726423,10.953999L21.333,10.953999 21.333,11.909865 8.5726423,11.928067C7.1117692,11.928067 5.9254951,13.114249 5.9254951,14.577949 5.9254951,16.041651 7.1117692,17.227833 8.5726423,17.227833 10.036155,17.227833 11.221049,16.041651 11.221049,14.577949 11.221049,14.231626 11.150849,13.903403 11.02975,13.600082L12.046645,13.600082C12.135145,13.913804 12.197644,14.236726 12.197644,14.577949 12.197644,16.575388 10.572653,18.202 8.5726423,18.202 6.575212,18.202 4.9489999,16.575388 4.9489999,14.577949 4.9489999,12.580312 6.575212,10.953999 8.5726423,10.953999z M14.270998,0.61500002C15.851686,0.61499996 17.137896,1.9000077 17.137896,3.4791894 17.137896,3.7512648 17.088499,4.006443 17.018204,4.2537126L16.213661,4.2537126C16.309855,4.0155715 16.36455,3.7551741 16.36455,3.4791894 16.36455,2.3231284 15.427217,1.3858718 14.270998,1.3858718 13.114779,1.3858718 12.177445,2.3231284 12.177445,3.4791894 12.177445,4.6378397 13.114779,5.5764961 14.270998,5.5764961L21.333,5.5856847 21.333,6.3460001 14.270998,6.3460001C12.69041,6.3460001 11.404,5.0609602 11.404,3.4791894 11.404,1.9000077 12.69041,0.61499996 14.270998,0.61500002z M4.4699073,0C6.9348421,-4.4630667E-08 8.9399939,2.0052394 8.9399939,4.4689202 8.9399939,4.8907504 8.8631554,5.2891907 8.753727,5.6758303L7.4998946,5.6758303C7.648272,5.3022804 7.734271,4.8973407 7.734271,4.4689202 7.734271,2.6640358 6.2733517,1.2005296 4.4699073,1.2005298 2.6665926,1.2005296 1.2056731,2.6640358 1.2056731,4.4689202 1.2056731,6.2735948 2.6665926,7.7370705 4.4699073,7.7370705L21.333,7.7592215 21.333,8.9390001 4.4699073,8.9390001C2.0051618,8.9390001 0,6.9337611 0,4.4689202 0,2.0052394 2.0051618,-4.4630667E-08 4.4699073,0z" />
+                            </AppBarButton.Icon>
+                        </AppBarButton>
+                        <AppBarButton Label="Eat"
+                                      DataContext="{Binding SelectedCheese}"
+                                      Command="{Binding EatComand}">
+                            <AppBarButton.Icon>
+                                <PathIcon Height="32"
+                                          Width="32"
+                                          Margin="10 10 0 0"
+                                          Data="M17.275801,0C18.945648,0,20.305008,1.2630363,20.491901,2.8827558L20.528999,21.333 16.575321,21.333 16.575321,13.425548 14.022,13.425548 14.022,3.2538488C14.022,1.4570026,15.478955,0,17.275801,0z M0,0L1.002043,0 1.002043,5.175878 2.7044303,5.175878 2.7044303,0 3.7063433,0 3.7063433,5.175878 5.4634189,5.175878 5.4634189,0 6.465342,0 6.465342,5.175878 8.2230863,5.175878 8.2230863,0 9.2250003,0 9.2250003,5.175878 7.9066886,8.9103289 6.6984233,8.9103289 6.6984233,21.102001 2.525417,21.102001 2.525417,8.9103289 1.3177615,8.9103289 0,5.175878z" />
+                            </AppBarButton.Icon>
+                        </AppBarButton>
+                    </StackPanel>
+                </StackPanel>
+                <!-- Primay Command -->
+                <StackPanel Grid.Column="1"
+                            Orientation="Vertical"
+                            HorizontalAlignment="Right">
+                    <AppBarButton Label="Primary"
+                                  Icon="Admin" />
+                </StackPanel>
+            </Grid>
+        </AppBar>
     </Page.BottomAppBar>
 </Page>

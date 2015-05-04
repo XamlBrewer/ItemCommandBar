@@ -36,7 +36,14 @@
                 {
                     this.selectedCheese.IsSelected = true;
                 }
+
+                this.OnPropertyChanged("HasSelection");
             }
+        }
+
+        public bool HasSelection
+        {
+            get { return this.selectedCheese != null; }
         }
     }
 }

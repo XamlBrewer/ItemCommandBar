@@ -11,18 +11,20 @@
                 <ResourceDictionary Source="Controls/CollapsedAppBar.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
-            <SolidColorBrush x:Key="MightyRed"
-                             Color="#FFEE5A5A" />
-            <SolidColorBrush x:Key="MightyYellow"
-                             Color="#FFEBE93C" />
-            <SolidColorBrush x:Key="MightyPink"
-                             Color="#FFE1BF92" />
+            <SolidColorBrush x:Key="GeronimoTie"
+                             Color="#FFD0061E" />
+            <SolidColorBrush x:Key="GeronimoPants"
+                             Color="#FF90996C" />
+            <SolidColorBrush x:Key="GeronimoFur"
+                             Color="#FFE6892C" />
+            <SolidColorBrush x:Key="GeronimoFeet"
+                             Color="#FFD5ECFA" />
 
             <!-- Override the listview selected item colors -->
             <SolidColorBrush x:Key="ListViewItemSelectedPointerOverBorderThemeBrush"
-                             Color="#FFEE5A5A" />
+                             Color="#FFE53118" />
             <SolidColorBrush x:Key="ListViewItemSelectedBackgroundThemeBrush"
-                             Color="#FFEE5A5A" />
+                             Color="#FFE53118" />
         </ResourceDictionary>
     </Application.Resources>
 
