@@ -56,27 +56,31 @@
             </ListView.Header>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Height="120"
+                    <Grid Height="180"
                           Width="720"
                           Background="{StaticResource GeronimoPants}">
                         <Grid.RowDefinitions>
-                            <RowDefinition />
+                            <RowDefinition Height="auto"/>
                             <RowDefinition />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition />
-                            <ColumnDefinition />
+                            <ColumnDefinition Width="3*" />
+                            <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock Text="{Binding Name}"
                                    Foreground="{StaticResource GeronimoFeet}"
                                    FontSize="40"
-                                   Margin="10"
-                                   FontFamily="Andy" />
+                                   Margin="10 10 10 0"
+                                   FontFamily="Andy"
+                                   TextWrapping="WrapWholeWords"
+                                   />
                         <StackPanel Visibility="{Binding HasPointer, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                    Background="Transparent"
                                     Grid.Column="1"
                                     Grid.RowSpan="2"
                                     Orientation="Horizontal"
-                                    HorizontalAlignment="Right">
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Top">
                             <AppBarButton Label="Smell"
                                           Command="{Binding SmellCommand}">
                                 <AppBarButton.Icon>
@@ -98,7 +102,6 @@
                         </StackPanel>
                         <TextBlock Text="{Binding Description}"
                                    Grid.Row="1"
-                                   Grid.ColumnSpan="2"
                                    Foreground="White"
                                    FontSize="32"
                                    Margin="10"
@@ -146,7 +149,7 @@
                         </Canvas>
                     </Viewbox>
                 </Canvas>
-                <Grid Width="200"
+                <Grid Width="190"
                       Height="80">
                     <TextBlock Foreground="{StaticResource GeronimoTie}"
                                FontSize="24"
@@ -218,8 +221,8 @@
                 <StackPanel Grid.Column="1"
                             Orientation="Vertical"
                             HorizontalAlignment="Right">
-                    <AppBarButton Label="Primary"
-                                  Icon="Admin" />
+                    <AppBarButton Label="Laugh"
+                                  Icon="Emoji" />
                 </StackPanel>
             </Grid>
         </AppBar>
