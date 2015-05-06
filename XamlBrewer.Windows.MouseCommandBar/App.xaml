@@ -14,7 +14,7 @@
             <SolidColorBrush x:Key="GeronimoTie"
                              Color="#FFD0061E" />
             <SolidColorBrush x:Key="GeronimoPants"
-                             Color="#FF90996C" />
+                             Color="#FF71844C" />
             <SolidColorBrush x:Key="GeronimoFur"
                              Color="#FFE6892C" />
             <SolidColorBrush x:Key="GeronimoFeet"

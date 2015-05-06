@@ -1,17 +1,13 @@
 ﻿namespace XamlBrewer.MouseCommandBar.ViewModels
 {
-    using Mvvm;
     using System.Diagnostics;
     using System.Windows.Input;
-    using Windows.UI.Xaml;
-    using System;
+    using Mvvm;
 
-    class CheeseViewModel : ViewModelBase
+    class CheeseViewModel : ItemViewModelBase
     {
         private string name;
         private string description;
-        private bool hasPointer = false;
-        private bool isSelected;
 
         public string Name
         {
@@ -23,27 +19,6 @@
         {
             get { return this.description; }
             set { this.SetProperty(ref this.description, value); }
-        }
-
-        public bool IsSelected
-        {
-            get { return this.isSelected; }
-            set
-            {
-                this.SetProperty(ref this.isSelected, value);
-            }
-        }
-
-        public bool HasPointer
-        {
-            get { return this.hasPointer; }
-            set
-            {
-                if (this.InputMode != Services.InputMode.TouchOptimized)
-                {
-                    this.SetProperty(ref this.hasPointer, value);
-                }
-            }
         }
 
         public ICommand SmellCommand
