@@ -14,6 +14,12 @@
             set
             {
                 this.SetProperty(ref this.isSelected, value);
+                // Update HasPointer if in TouchEnabled mode.
+                if (this.InputMode == Services.InputMode.TouchEnabled)
+                {
+                    this.hasPointer = value;
+                    this.OnPropertyChanged("HasPointer");
+                }
             }
         }
 
@@ -22,6 +28,7 @@
             get { return this.hasPointer; }
             set
             {
+                // Behavior is only active in Desktop mode.
                 if (this.InputMode == Services.InputMode.Desktop)
                 {
                     this.SetProperty(ref this.hasPointer, value);
