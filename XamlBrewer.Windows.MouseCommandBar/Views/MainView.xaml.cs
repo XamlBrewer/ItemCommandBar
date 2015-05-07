@@ -19,5 +19,13 @@
 
             this.ModeComboBox.SelectedIndex = (int)Device.Instance.InputMode;
         }
+
+        private void CheesePlate_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (Device.Instance.InputMode == InputMode.TouchOptimized && e.AddedItems.Count == 1)
+            {
+                this.BottomAppBar.IsOpen = true;
+            }
+        }
     }
 }

@@ -44,10 +44,10 @@
         <!-- Main -->
         <ListView ItemsSource="{Binding CheesePlate}"
                   SelectedItem="{Binding SelectedCheese, Mode=TwoWay}"
+                  SelectionChanged="CheesePlate_SelectionChanged"
                   Margin="20"
                   HorizontalAlignment="Left"
-                  Grid.Row="1"
-                  >
+                  Grid.Row="1">
             <ListView.Header>
                 <TextBlock Text="Cheese Pun"
                            FontSize="42"
@@ -60,20 +60,19 @@
                           Width="720"
                           Background="{StaticResource GeronimoPants}">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto" />
                             <RowDefinition />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="3*" />
-                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <TextBlock Text="{Binding Name}"
                                    Foreground="{StaticResource GeronimoFeet}"
                                    FontSize="40"
                                    Margin="10 10 10 0"
                                    FontFamily="Harrington"
-                                   TextWrapping="WrapWholeWords"
-                                   />
+                                   TextWrapping="WrapWholeWords" />
                         <StackPanel Visibility="{Binding HasPointer, Converter={StaticResource BooleanToVisibilityConverter}}"
                                     Background="Transparent"
                                     Grid.Column="1"
@@ -82,7 +81,7 @@
                                     HorizontalAlignment="Right"
                                     VerticalAlignment="Top">
                             <AppBarButton Label="Smell"
-                                          Command="{Binding SmellCommand}" 
+                                          Command="{Binding SmellCommand}"
                                           RequestedTheme="Dark">
                                 <AppBarButton.Icon>
                                     <PathIcon Height="32"
@@ -92,7 +91,7 @@
                                 </AppBarButton.Icon>
                             </AppBarButton>
                             <AppBarButton Label="Eat"
-                                          Command="{Binding EatComand}" 
+                                          Command="{Binding EatComand}"
                                           RequestedTheme="Dark">
                                 <AppBarButton.Icon>
                                     <PathIcon Height="32"
@@ -186,7 +185,8 @@
                                Grid.ColumnSpan="10" />
     </Grid>
     <Page.BottomAppBar>
-        <AppBar Background="{StaticResource GeronimoFur}">
+        <AppBar x:Name="BottomAppBar"
+                Background="{StaticResource GeronimoFur}">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto" />
