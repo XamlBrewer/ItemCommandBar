@@ -43,7 +43,7 @@
 
         <!-- Main -->
         <ListView ItemsSource="{Binding CheesePlate}"
-                  SelectedItem="{Binding SelectedCheese, Mode=TwoWay}"
+                  SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
                   SelectionChanged="CheesePlate_SelectionChanged"
                   Margin="20"
                   HorizontalAlignment="Left"
@@ -198,7 +198,7 @@
                     <StackPanel Orientation="Horizontal"
                                 Visibility="{Binding HasSelection, Converter={StaticResource BooleanToVisibilityConverter}}">
                         <AppBarButton Label="Smell"
-                                      DataContext="{Binding SelectedCheese}"
+                                      DataContext="{Binding SelectedItem}"
                                       Command="{Binding SmellCommand}">
                             <AppBarButton.Icon>
                                 <PathIcon Height="32"
@@ -208,7 +208,7 @@
                             </AppBarButton.Icon>
                         </AppBarButton>
                         <AppBarButton Label="Eat"
-                                      DataContext="{Binding SelectedCheese}"
+                                      DataContext="{Binding SelectedItem}"
                                       Command="{Binding EatComand}">
                             <AppBarButton.Icon>
                                 <PathIcon Height="32"

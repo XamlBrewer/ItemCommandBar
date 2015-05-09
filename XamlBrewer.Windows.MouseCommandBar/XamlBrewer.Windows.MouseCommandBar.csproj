@@ -121,6 +121,7 @@
     <Compile Include="Services\InputMode.cs" />
     <Compile Include="ViewModels\CheeseViewModel.cs" />
     <Compile Include="ViewModels\ItemViewModelBase.cs" />
+    <Compile Include="ViewModels\ListViewModelBase.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\MainView.xaml.cs">

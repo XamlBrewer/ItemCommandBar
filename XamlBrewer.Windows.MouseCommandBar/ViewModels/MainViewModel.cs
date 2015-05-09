@@ -2,10 +2,8 @@
 {
     using System.Collections.Generic;
 
-    class MainViewModel : ViewModelBase
+    class MainViewModel : ListViewModelBase<CheeseViewModel>
     {
-        private CheeseViewModel selectedCheese;
-
         public List<CheeseViewModel> CheesePlate
         {
             get
@@ -17,25 +15,6 @@
                     new CheeseViewModel() { Name="Cheddar", Description="Q: When should you go on a cheese diet?\nA: If you need to Cheddar a few pounds."},
                     new CheeseViewModel() { Name="Curds", Description="Q: What group of cheese has been known to fly?\nA: Curds of prey!"}
                 };
-            }
-        }
-
-        public CheeseViewModel SelectedCheese
-        {
-            get { return this.selectedCheese; }
-            set
-            {
-                if (this.selectedCheese != null)
-                {
-                    this.selectedCheese.IsSelected = false;
-                }
-
-                this.SetProperty(ref this.selectedCheese, value);
-
-                if (this.selectedCheese != null)
-                {
-                    this.selectedCheese.IsSelected = true;
-                }
             }
         }
     }
