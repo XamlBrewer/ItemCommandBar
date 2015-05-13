@@ -2,11 +2,14 @@
 
 namespace XamlBrewer.MouseCommandBar.Services
 {
-    class Device: BindableBase
+    class Device : BindableBase
     {
         private readonly static Device _instance;
         private InputMode _inputMode;
 
+        /// <summary>
+        /// Represents the device and its capabilities.
+        /// </summary>
         static Device()
         {
             _instance = new Device();
@@ -30,7 +33,9 @@ namespace XamlBrewer.MouseCommandBar.Services
         }
 
         public static Device Instance
-        { get { return _instance; } }
+        {
+            get { return _instance; }
+        }
 
         public InputMode InputMode
         {

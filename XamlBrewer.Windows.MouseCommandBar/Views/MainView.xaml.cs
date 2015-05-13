@@ -25,6 +25,11 @@
             if (Device.Instance.InputMode == InputMode.TouchOptimized && e.AddedItems.Count == 1)
             {
                 this.BottomAppBar.IsOpen = true;
+                this.BottomAppBar.IsSticky = true;
+            }
+            else
+            {
+                this.BottomAppBar.IsOpen = false;
             }
         }
     }

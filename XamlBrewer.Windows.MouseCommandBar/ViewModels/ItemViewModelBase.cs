@@ -28,7 +28,7 @@
             get { return this.hasPointer; }
             set
             {
-                // Behavior is only active in Desktop mode.
+                // Property is only active in Desktop mode.
                 if (this.InputMode == Services.InputMode.Desktop)
                 {
                     this.SetProperty(ref this.hasPointer, value);

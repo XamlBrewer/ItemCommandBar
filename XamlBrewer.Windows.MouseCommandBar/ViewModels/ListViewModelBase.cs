@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace XamlBrewer.MouseCommandBar.ViewModels
+﻿namespace XamlBrewer.MouseCommandBar.ViewModels
 {
-    class ListViewModelBase<T> : ViewModelBase where T: ItemViewModelBase
+    /// <summary>
+    /// Base class for viewmodels that represent a single list of item viewmodels.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    class ListViewModelBase<T> : ViewModelBase where T : ItemViewModelBase
     {
         private T selectedItem;
 
@@ -32,6 +30,8 @@ namespace XamlBrewer.MouseCommandBar.ViewModels
         }
 
         public bool HasSelection
-        { get { return this.selectedItem != null; } }
+        {
+            get { return this.selectedItem != null; }
+        }
     }
 }
